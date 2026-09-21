@@ -25,8 +25,6 @@ app.include_router(rfqs.router)
 app.include_router(quotations.router)
 
 
-@app.get("/health")
-def health_check():
-    return {
-        "status": "ok"
-    }
+@app.api_route("/health", methods=["GET", "HEAD"])
+def health():
+    return {"status": "ok"}
